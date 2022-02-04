@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS `sport`;
 DROP TABLE IF EXISTS `announcement`;
+DROP TABLE IF EXISTS `sport`;
 
-CREATE TABLE `announcement` (
+CREATE TABLE `sport` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` varchar(255) NOT NULL,
     `type` varchar(255) NOT NULL
 );
 
-CREATE TABLE `sport` (
+CREATE TABLE `announcement` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` varchar(255) NOT NULL,
     `contact` varchar(255) NOT NULL,

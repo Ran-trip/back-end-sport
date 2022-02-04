@@ -3,11 +3,12 @@ const req = require('express/lib/request');
 const announceModel = require('../model/announceModel');
 
 announceRouter.get('/', async (req, res) => {
-    const [announces] = await announceModel.findAllAnnouncement();
-    return res.json(announces);
+    const [announcement] = await announceModel.findAllAnnouncement();
+    return res.json(announcement);
 });
 
 announceRouter.post('/', async (req, res) => {
+    console.log(req.body);
     const [{ insertId: id }] = await announceModel.createOneAnnouncement(req.body);
     return res.status(201).json({
         id,

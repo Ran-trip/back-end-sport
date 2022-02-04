@@ -9,17 +9,19 @@ const createOneAnnouncement = ({
     contact,
     title,
     text,
-    idSport,
-}) => connection.promise().query(`INSERT INTO ${TABLE} (name, contact, title, text, id_sport) VALUES (?, ?, ?, ?)`, [name, contact, title, text, idSport]);
+    id_sport,
+}) => connection.promise().query(`INSERT INTO ${TABLE} (name, contact, title, text, id_sport) VALUES (?, ?, ?, ?, ?)`, [name, contact, title, text, id_sport]);
 
-const deleteOneAnnounce = (id) => connection.promise().query(`DELETE FROM ${TABLE} WHERE id = ?`, [id]);
+const deleteOneAnnouncement = (id) => connection.promise().query(`DELETE FROM ${TABLE} WHERE id = ?`, [id]);
 const findOneAnnouncement = (sportId) => connection.promise().query(`SELECT * FROM ${TABLE} WHERE id_sport = ?`, [sportId]);
-const updateAnnounce = (object, id) => connection.promise().query(`UPDATE ${TABLE} SET ? WHERE id = ?`, [object, id]);
+const updateAnnouncement = (object, id) => connection.promise().query(`UPDATE ${TABLE} SET ? WHERE id = ?`, [object, id]);
+
+
 
 module.exports = {
     findAllAnnouncement,
     createOneAnnouncement,
     findOneAnnouncement,
-    updateAnnounce,
-    deleteOneAnnounce,
+    updateAnnouncement,
+    deleteOneAnnouncement,
 };
